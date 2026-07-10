@@ -1,0 +1,66 @@
+{
+  "$schema": "Every asset must be downloaded/hosted locally and carry provenance + approval before production use. Never hotlink Google Images.",
+  "generated": "template",
+  "assets": [
+    {
+      "filename": "ravi-tomar/portraits/hero-portrait.jpg",
+      "person": "Ravi Tomar",
+      "event": "Editorial studio portrait",
+      "year": "",
+      "sourceName": "",
+      "sourceUrl": "",
+      "usageStatus": "needs-approval",
+      "alt": "Editorial studio portrait of Ravi Tomar, Founder and Chairman of CRL Diagnostics."
+    },
+    {
+      "filename": "ravi-tomar/awards/et-now-service-excellence-2025.jpg",
+      "person": "Ravi Tomar",
+      "event": "ET NOW Business Conclave & Awards — Service Excellence in Diagnostics",
+      "year": "2025",
+      "sourceName": "",
+      "sourceUrl": "",
+      "usageStatus": "needs-approval",
+      "alt": "Ravi Tomar receiving the Service Excellence in Diagnostics award at the ET NOW Business Conclave & Awards."
+    },
+    {
+      "filename": "ravi-tomar/awards/most-promising-ceo-2023.jpg",
+      "person": "Ravi Tomar",
+      "event": "Most Promising CEO of the Year in Healthcare",
+      "year": "2023",
+      "sourceName": "",
+      "sourceUrl": "",
+      "usageStatus": "needs-approval",
+      "alt": "Ravi Tomar recognised as Most Promising CEO of the Year in Healthcare."
+    },
+    {
+      "filename": "ravi-tomar/events/cii-delhi-healthcare-summit-2025.jpg",
+      "person": "Ravi Tomar",
+      "event": "CII Delhi Healthcare Summit",
+      "year": "2025",
+      "sourceName": "",
+      "sourceUrl": "",
+      "usageStatus": "needs-approval",
+      "alt": "Ravi Tomar during a panel discussion at the CII Delhi Healthcare Summit."
+    },
+    {
+      "filename": "ravi-tomar/media/ethealthworld-interview-2020.jpg",
+      "person": "Ravi Tomar",
+      "event": "ET HealthWorld interview — Quality matters most in the diagnostic industry",
+      "year": "2020",
+      "sourceName": "ET HealthWorld",
+      "sourceUrl": "",
+      "usageStatus": "needs-approval",
+      "alt": "Ravi Tomar during his ET HealthWorld interview on diagnostic quality."
+    },
+    {
+      "filename": "crl/laboratories/crl-lab-interior.jpg",
+      "person": "Ravi Tomar",
+      "event": "CRL Diagnostics laboratory facility",
+      "year": "",
+      "sourceName": "CRL Diagnostics",
+      "sourceUrl": "",
+      "usageStatus": "needs-approval",
+      "alt": "Interior of a modern, automated CRL diagnostic laboratory."
+    }
+  ]
+}

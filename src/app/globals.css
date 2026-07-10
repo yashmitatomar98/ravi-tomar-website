@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --lab-black: #07110f;
+  --lab-deep: #0d1b18;
+  --ivory: #f3f0e8;
+  --muted: #9ba8a3;
+  --accent: #b7ff4a;
+  --champagne: #b89b5e;
+  --sci: #79c7b5;
+
+  --ease-precision: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: auto; /* Lenis handles smoothing */
+  }
+
+  body {
+    background-color: var(--lab-black);
+    color: var(--ivory);
+    font-family: var(--font-body), system-ui, sans-serif;
+    overflow-x: hidden;
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  ::selection {
+    background: var(--sci);
+    color: var(--lab-black);
+  }
+
+  /* Custom scrollbar — thin, scientific */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--lab-black);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1c2b27;
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #26403a;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 400;
+  }
+}
+
+@layer components {
+  .container-lab {
+    @apply mx-auto w-full max-w-[1600px] px-6 md:px-12 lg:px-20;
+  }
+
+  .eyebrow {
+    @apply font-sans text-[11px] uppercase tracking-widest2 text-muted;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-white/10;
+  }
+
+  /* Text with a scientific mono-ish number treatment */
+  .index-num {
+    font-family: var(--font-body), monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* ---------- Grain overlay ---------- */
+.grain {
+  position: fixed;
+  inset: -150%;
+  width: 400%;
+  height: 400%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  will-change: transform;
+}
+
+/* ---------- Custom cursor ---------- */
+@media (hover: hover) and (pointer: fine) {
+  .cursor-enabled,
+  .cursor-enabled * {
+    cursor: none !important;
+  }
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--ivory);
+  mix-blend-mode: difference;
+}
+
+.cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(243, 240, 232, 0.5);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-body), sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  transition: width 0.4s var(--ease-precision), height 0.4s var(--ease-precision),
+    background 0.4s var(--ease-precision), border-color 0.4s var(--ease-precision);
+}
+
+.cursor-ring[data-variant="media"],
+.cursor-ring[data-variant="view"],
+.cursor-ring[data-variant="read"] {
+  width: 88px;
+  height: 88px;
+  background: rgba(121, 199, 181, 0.08);
+  border-color: rgba(121, 199, 181, 0.6);
+  backdrop-filter: blur(1px);
+}
+
+.cursor-ring .cursor-label {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cursor-ring[data-variant="view"] .cursor-label,
+.cursor-ring[data-variant="media"] .cursor-label,
+.cursor-ring[data-variant="read"] .cursor-label {
+  opacity: 1;
+}
+
+/* ---------- Scan line ---------- */
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 140px;
+  pointer-events: none;
+  z-index: 5;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(121, 199, 181, 0.06) 45%,
+    rgba(183, 255, 74, 0.12) 50%,
+    rgba(121, 199, 181, 0.06) 55%,
+    transparent
+  );
+}
+
+/* ---------- Utility ---------- */
+.text-balance {
+  text-wrap: balance;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.reveal-line {
+  display: block;
+  overflow: hidden;
+}
+.reveal-line > span {
+  display: block;
+}
+
+.bw-photo {
+  filter: grayscale(1) contrast(1.05) brightness(0.9);
+  transition: filter 1.2s var(--ease-precision);
+}
+.bw-photo:hover {
+  filter: grayscale(0) contrast(1) brightness(1);
+}
+
+.mask-fade-b {
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent);
+  mask-image: linear-gradient(to bottom, black 70%, transparent);
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .grain,
+  .scan-line {
+    display: none !important;
+  }
+}
