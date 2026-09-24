@@ -1,66 +1,30 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./src/app/**/*.{ts,tsx}",
-    "./src/components/**/*.{ts,tsx}",
-    "./src/data/**/*.{ts,tsx}",
-  ],
+  content: ["./src/app/**/*.{ts,tsx}", "./src/components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        // Deep laboratory black with subtle green undertone
-        lab: {
-          black: "#07110F",
-          deep: "#0D1B18",
-          800: "#0F211D",
-          700: "#132924",
-        },
-        ivory: "#F3F0E8",
-        muted: "#9BA8A3",
-        accent: "#B7FF4A", // used extremely sparingly
-        champagne: "#B89B5E",
-        sci: "#79C7B5",
+        canvas: "#F8F7F4", // warm ivory background
+        paper: "#FFFFFF",
+        ink: "#18202A", // primary text
+        slate: "#5F6670", // secondary text
+        line: "#E5E2DC", // hairline borders
+        gold: "#B08A45", // accent — rules, icons, details
+        bronze: "#86672F", // gold for text (AA contrast on ivory/white)
+        navy: "#162433",
+        "navy-soft": "#1E3044", // raised surfaces on navy
+        stone: "#EEEAE2", // tonal panel behind imagery
       },
       fontFamily: {
-        serif: ["var(--font-display)", "Cormorant Garamond", "Georgia", "serif"],
-        sans: ["var(--font-body)", "Inter", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
-      letterSpacing: {
-        wider2: "0.18em",
-        widest2: "0.32em",
+      maxWidth: {
+        site: "1240px",
       },
-      fontSize: {
-        "10xl": ["10rem", { lineHeight: "0.9" }],
-        "11xl": ["12.5rem", { lineHeight: "0.86" }],
-      },
-      transitionTimingFunction: {
-        precision: "cubic-bezier(0.16, 1, 0.3, 1)",
-        lab: "cubic-bezier(0.65, 0, 0.35, 1)",
-      },
-      keyframes: {
-        grainShift: {
-          "0%, 100%": { transform: "translate(0, 0)" },
-          "10%": { transform: "translate(-5%, -5%)" },
-          "30%": { transform: "translate(3%, -8%)" },
-          "50%": { transform: "translate(-4%, 6%)" },
-          "70%": { transform: "translate(6%, 2%)" },
-          "90%": { transform: "translate(-2%, 4%)" },
-        },
-        scanMove: {
-          "0%": { transform: "translateY(-100%)", opacity: "0" },
-          "10%": { opacity: "0.6" },
-          "90%": { opacity: "0.6" },
-          "100%": { transform: "translateY(2000%)", opacity: "0" },
-        },
-        marqueeX: {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
-      },
-      animation: {
-        grain: "grainShift 8s steps(6) infinite",
-        marquee: "marqueeX 40s linear infinite",
+      boxShadow: {
+        soft: "0 1px 2px rgba(22, 36, 51, 0.04), 0 8px 24px -12px rgba(22, 36, 51, 0.12)",
       },
     },
   },

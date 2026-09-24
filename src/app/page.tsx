@@ -1,32 +1,24 @@
-import Hero from "@/components/hero/Hero";
-import OpeningStatement from "@/components/story/OpeningStatement";
-import Journey from "@/components/timeline/Journey";
-import BuildingCRL from "@/components/building/BuildingCRL";
-import Philosophy from "@/components/philosophy/Philosophy";
-import Recognition from "@/components/recognition/Recognition";
-import IndustryVoice from "@/components/media/IndustryVoice";
-import LeadershipMoments from "@/components/gallery/LeadershipMoments";
-import Press from "@/components/press/Press";
-import PersonalLeadership from "@/components/personal/PersonalLeadership";
-import Legacy from "@/components/legacy/Legacy";
-import Journal from "@/components/journal/Journal";
-import Contact from "@/components/contact/Contact";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Journey from "@/components/sections/Journey";
+import CrlDiagnostics from "@/components/sections/CrlDiagnostics";
+import Philosophy from "@/components/sections/Philosophy";
+import Insights from "@/components/sections/Insights";
+import Recognition from "@/components/sections/Recognition";
+import Speaking from "@/components/sections/Speaking";
+import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <OpeningStatement />
+      <About />
       <Journey />
-      <BuildingCRL />
+      <CrlDiagnostics />
       <Philosophy />
       <Recognition />
-      <IndustryVoice />
-      <LeadershipMoments />
-      <Press />
-      <PersonalLeadership />
-      <Legacy />
-      <Journal />
+      <Insights />
+      <Speaking />
       <Contact />
     </>
   );

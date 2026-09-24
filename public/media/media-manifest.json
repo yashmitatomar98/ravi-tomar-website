@@ -3,19 +3,69 @@
   "generated": "template",
   "assets": [
     {
-      "filename": "ravi-tomar/portraits/hero-portrait.jpg",
+      "filename": "ravi-tomar/portraits/ravi-tomar-office.jpg",
       "person": "Ravi Tomar",
-      "event": "Editorial studio portrait",
+      "event": "Office portrait",
       "year": "",
-      "sourceName": "",
+      "sourceName": "Official profile sheet (client-supplied PDF)",
       "sourceUrl": "",
-      "usageStatus": "needs-approval",
-      "alt": "Editorial studio portrait of Ravi Tomar, Founder and Chairman of CRL Diagnostics."
+      "usageStatus": "approved",
+      "alt": "Ravi Tomar, Founder, Chairman and Managing Director of CRL Diagnostics, at his desk."
+    },
+    {
+      "filename": "ravi-tomar/portraits/ravi-tomar-desk.jpg",
+      "person": "Ravi Tomar",
+      "event": "Office portrait",
+      "year": "",
+      "sourceName": "Client-supplied (director.png)",
+      "sourceUrl": "",
+      "usageStatus": "approved",
+      "alt": "Ravi Tomar reviewing documents in his office."
+    },
+    {
+      "filename": "ravi-tomar/media/ceo-insights-2022.jpg",
+      "person": "Ravi Tomar",
+      "event": "CEO Insights India feature \u2014 May 2022",
+      "year": "2022",
+      "sourceName": "Client-supplied (nx7ls.227.jpg)",
+      "sourceUrl": "https://www.ceoinsightsindia.com/leader/ravi-tomar-a-diagnostic-industry-veteran-democratizing-quality-healthcare-investigations-cid-4432.html",
+      "usageStatus": "approved",
+      "alt": "Ravi Tomar at his desk, as featured in CEO Insights India."
+    },
+    {
+      "filename": "press/forbes.png",
+      "person": "",
+      "event": "Press logo \u2014 Forbes",
+      "year": "",
+      "sourceName": "Official profile sheet (client-supplied PDF)",
+      "sourceUrl": "",
+      "usageStatus": "approved",
+      "alt": "Forbes"
+    },
+    {
+      "filename": "press/ani.png",
+      "person": "",
+      "event": "Press logo \u2014 ANI",
+      "year": "",
+      "sourceName": "Official profile sheet (client-supplied PDF)",
+      "sourceUrl": "",
+      "usageStatus": "approved",
+      "alt": "ANI"
+    },
+    {
+      "filename": "press/ceo-insights.png",
+      "person": "",
+      "event": "Press logo \u2014 CEO Insights",
+      "year": "",
+      "sourceName": "Official profile sheet (client-supplied PDF)",
+      "sourceUrl": "",
+      "usageStatus": "approved",
+      "alt": "CEO Insights"
     },
     {
       "filename": "ravi-tomar/awards/et-now-service-excellence-2025.jpg",
       "person": "Ravi Tomar",
-      "event": "ET NOW Business Conclave & Awards — Service Excellence in Diagnostics",
+      "event": "ET NOW Business Conclave & Awards \u2014 Service Excellence in Diagnostics",
       "year": "2025",
       "sourceName": "",
       "sourceUrl": "",
@@ -45,7 +95,7 @@
     {
       "filename": "ravi-tomar/media/ethealthworld-interview-2020.jpg",
       "person": "Ravi Tomar",
-      "event": "ET HealthWorld interview — Quality matters most in the diagnostic industry",
+      "event": "ET HealthWorld interview \u2014 Quality matters most in the diagnostic industry",
       "year": "2020",
       "sourceName": "ET HealthWorld",
       "sourceUrl": "",

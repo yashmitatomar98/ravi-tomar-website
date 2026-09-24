@@ -1,53 +1,43 @@
 /**
- * CRL Diagnostics — all quantitative values are CMS-configurable and MUST be
- * verified against official company material before production.
+ * CRL Diagnostics section content. Source: official profile sheet; NABL/ICMR
+ * approval per CEO Insights (2022).
  */
 
-export const crlLinks = {
-  website: "https://www.crldiagnostics.com/",
-  linkedin: "https://www.linkedin.com/in/ravi-tomar-9783a6b4/",
-  instagram: "https://www.instagram.com/crl.diagnostics/",
-  companyLinkedin: "https://in.linkedin.com/company/crldiagnostics",
+export const crl = {
+  intro:
+    "Founded in 2015, CRL Diagnostics Pvt. Ltd. has become a trusted name in the Indian diagnostics landscape. It began as a single laboratory and has grown into one of India's fastest-growing diagnostic chains, guided by one principle: quality healthcare at affordable prices for all.",
+  body: [
+    "Under Ravi Tomar's leadership, CRL has invested in the standards, systems and people that accurate diagnosis depends on — with NABL- and ICMR-approved laboratory practice and a team of more than 950 healthcare professionals.",
+  ],
 };
 
-export type CrlPillar = {
-  index: string;
-  key: string;
-  headline: string;
-};
+export type CrlPillar = { title: string; body: string };
 
 export const crlPillars: CrlPillar[] = [
-  { index: "01", key: "Founding Vision", headline: "Quality Without Compromise" },
-  { index: "02", key: "Network", headline: "A Growing Diagnostic Presence" },
-  { index: "03", key: "Science", headline: "Advanced Diagnostic Capabilities" },
   {
-    index: "04",
-    key: "Access",
-    headline: "Making Quality Diagnostics More Accessible",
+    title: "Quality systems",
+    body: "NABL- and ICMR-approved laboratory practice, with accuracy treated as a responsibility.",
+  },
+  {
+    title: "Technology",
+    body: "Modern diagnostic equipment and laboratory processes that support reliable results.",
+  },
+  {
+    title: "Patient-centred care",
+    body: "Diagnostics designed around the patient, and around the clinicians who depend on each report.",
+  },
+  {
+    title: "Pan-India growth",
+    body: "From one laboratory to a national presence, with standards kept intact at every stage.",
   },
 ];
 
-export type LabLocation = {
-  name: string;
-  region: string;
-  /** Normalised map coordinates (0–100) over the India silhouette viewBox. */
-  x: number;
-  y: number;
-  verified: boolean;
-};
-
-/**
- * PLACEHOLDER regional markers. Replace with CRL's verified lab locations from
- * official company material. Do NOT ship fake locations — `verified` gates display.
- */
-export const labLocations: LabLocation[] = [
-  { name: "Delhi NCR", region: "North", x: 42, y: 30, verified: false },
-  { name: "Jaipur", region: "North", x: 33, y: 36, verified: false },
-  { name: "Lucknow", region: "North", x: 54, y: 37, verified: false },
-  { name: "Ahmedabad", region: "West", x: 26, y: 46, verified: false },
-  { name: "Mumbai", region: "West", x: 27, y: 58, verified: false },
-  { name: "Kolkata", region: "East", x: 68, y: 48, verified: false },
-  { name: "Hyderabad", region: "South", x: 44, y: 63, verified: false },
-  { name: "Bengaluru", region: "South", x: 40, y: 72, verified: false },
-  { name: "Chennai", region: "South", x: 48, y: 74, verified: false },
+/** "Trusted by leading institutions" — from the official profile sheet. */
+export const institutions = [
+  "Indian Railways",
+  "Pusa Institute",
+  "Apollo Hospitals",
+  "NTPC & GAIL (India)",
+  "State Governments of Punjab, Jammu & Kashmir and Uttar Pradesh",
+  "Offices of CMO, DSO and IDSP",
 ];

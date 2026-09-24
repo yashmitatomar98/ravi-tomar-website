@@ -2,79 +2,82 @@ export type TimelineEntry = {
   year: string;
   title: string;
   body: string;
-  /** Optional archival image (black & white, colourises on hover). */
-  image?: string;
-  imageAlt?: string;
-  /** The social post / publication URL this year's photo belongs to. */
-  sourceUrl?: string;
-  /** Set true only once the underlying claim is source-verified. */
+  /** Only entries with `verified: true` are rendered. */
   verified: boolean;
+  note?: string;
 };
 
 /**
- * The Journey — nearly three decades, one pursuit: accurate diagnosis.
- * NOTE: Public profiles carry slightly different timeline references.
- * Founding-year specifics are intentionally kept soft until CMS-verified.
+ * Professional journey. Keep entries factual and source-backed.
+ * Unverified entries stay in the file (hidden) until confirmed.
  */
 export const timeline: TimelineEntry[] = [
   {
-    year: "1998",
-    title: "The Foundation",
-    body: "Sales leadership across the healthcare and diagnostics industry, including tenure as Head of Sales at Speciality Ranbaxy Limited.",
-    verified: false,
-  },
-  {
-    year: "2002",
-    title: "Understanding the Industry",
-    body: "Sales and marketing leadership at Pathnet India. Years spent close to healthcare businesses, professionals and diagnostic operations shaped a deep understanding of how the industry truly works.",
-    verified: false,
-  },
-  {
-    year: "2011—2015",
-    title: "The Idea Takes Form",
-    body: "A conviction begins to take shape: quality diagnostics should not be limited by geography or affordability.",
-    verified: false,
-  },
-  {
-    year: "2015+",
-    title: "Building CRL Diagnostics",
-    body: "From a single pathology laboratory to a growing diagnostic network — built around one non-negotiable principle.",
-    verified: false,
-  },
-  {
-    year: "2020",
-    title: "The Quality Conversation",
-    body: "Featured by ETHealthWorld discussing regulation, accreditation and quality standards across the diagnostics industry.",
+    year: "Early career",
+    title: "Leadership in pathology",
+    body: "Built a career with renowned pathology brands, rising to senior leadership roles across the diagnostics industry.",
     verified: true,
   },
   {
-    year: "2023",
-    title: "Leadership Recognised",
-    body: "Recognised as Most Promising CEO of the Year in Healthcare.",
+    year: "1998",
+    title: "Head of Sales, Speciality Ranbaxy Limited",
+    body: "Sales leadership across the healthcare and diagnostics industry.",
     verified: false,
+    note: "From the previous site; confirm title and year before publishing.",
+  },
+  {
+    year: "2002",
+    title: "Sales & Marketing Leadership, Pathnet India",
+    body: "Sales and marketing leadership in diagnostic operations.",
+    verified: false,
+    note: "From the previous site; confirm title and year before publishing.",
+  },
+  {
+    year: "2015",
+    title: "Founded CRL Diagnostics",
+    body: "Established CRL Diagnostics as a single pathology laboratory, built around quality, ethics and affordability.",
+    verified: true,
+  },
+  {
+    year: "2017 & 2019",
+    title: "Zee Business Award",
+    body: "CRL Diagnostics named Best Diagnostics Lab in North India.",
+    verified: true,
+  },
+  {
+    year: "2020",
+    title: "ET HealthWorld interview",
+    body: "Discussed regulation, accreditation and quality standards across the diagnostics industry.",
+    verified: true,
+  },
+  {
+    year: "2021",
+    title: "Healthcare Leadership Award",
+    body: "Recognised by Eminent Research for healthcare leadership.",
+    verified: true,
+  },
+  {
+    year: "2022",
+    title: "CEO Insights cover feature",
+    body: "Profiled among India's leaders in diagnostics and pathology.",
+    verified: true,
   },
   {
     year: "2025",
-    title: "Service Excellence",
-    body: "Service Excellence in Diagnostics — ET NOW Business Conclave & Awards.",
-    verified: false,
-  },
-  {
-    year: "2025",
-    title: "Affordable Diagnostics",
-    body: "Recognised as a Rising Star in Affordable Diagnostic Services.",
-    verified: false,
-  },
-  {
-    year: "2025",
-    title: "The Industry Stage",
-    body: "Leadership participation and interviews at healthcare and diagnostics forums, including the CII Delhi Healthcare Summit.",
-    verified: false,
+    title: "Industry platforms",
+    body: "Speaker at InnoHealth 2025 and participant at the CII Delhi Healthcare Summit.",
+    verified: true,
   },
   {
     year: "2026",
-    title: "The Journey Continues",
-    body: "Continuing to build quality-focused, accessible diagnostic infrastructure across the country.",
-    verified: false,
+    title: "Nationwide expansion",
+    body: "CRL Diagnostics expands its diagnostic network with advanced laboratories, as reported by ANI.",
+    verified: true,
+  },
+  {
+    year: "Today",
+    title: "950+ professionals, pan-India",
+    body: "Leading CRL Diagnostics as one of India's fastest-growing diagnostic chains, trusted by leading institutions.",
+    verified: true,
   },
 ];

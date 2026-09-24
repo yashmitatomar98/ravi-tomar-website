@@ -1,21 +1,17 @@
-# Ravi Tomar — Precision & Purpose
+# Ravi Tomar — Personal Website
 
-An ultra-premium personal portfolio for **Ravi Tomar**, Founder, Chairman &
-Managing Director of **CRL Diagnostics Pvt. Ltd.**
+The professional website of **Ravi Tomar**, Founder, Chairman & Managing
+Director of **CRL Diagnostics Pvt. Ltd.**
 
-> Quality is not a benchmark. It is a responsibility.
-
-A dark, cinematic, editorial experience — Forbes leadership editorial × premium
-global CEO brand × luxury annual report × advanced diagnostic laboratory.
+A light, editorial executive profile: warm ivory and white, charcoal and navy
+type, a restrained gold accent, and very little motion.
 
 ## Stack
 
 - **Next.js 15** (App Router) + **React 19** + **TypeScript**
-- **Tailwind CSS** — custom "laboratory" design system
-- **GSAP + ScrollTrigger** — pinned/horizontal scroll, timeline, scrubbed reveals
-- **Lenis** — smooth scrolling
-- **Framer Motion**, **Lucide** — available where needed
-- **next/image**, dynamic **OpenGraph** artwork, **Person** JSON-LD
+- **Tailwind CSS**
+- **Cormorant Garamond** (headings) · **Inter** (body), via `next/font`
+- **Lucide** icons, **next/image**, dynamic OpenGraph image, **Person** JSON-LD
 
 ## Getting started
 
@@ -23,60 +19,80 @@ global CEO brand × luxury annual report × advanced diagnostic laboratory.
 npm install
 npm run dev      # http://localhost:3000
 npm run build    # production build
-npm start        # serve production build
 ```
-
-## Experience
-
-Cinematic preloader (`CALIBRATING PRECISION` → `RT` → `RAVI TOMAR`) · custom
-precision cursor (VIEW / WATCH / READ) · subtle grain, scan lines and
-microscopic particle fields · slow, deliberate motion. All effects respect
-`prefers-reduced-motion` and scale down on low-power devices.
 
 ## Structure
 
 ```
 src/
-  app/            layout (fonts, SEO, JSON-LD), page, og-image, robots, sitemap
+  app/                 layout (fonts, SEO, JSON-LD), page, og-image, robots, sitemap
   components/
-    layout/       Navigation, Footer, SmoothScroll
-    fx/           Preloader, CustomCursor, Grain, ScanLine, Particles
-    ui/           MediaFrame (image or branded placeholder)
-    hero/ story/ timeline/ building/ philosophy/ recognition/
-    media/ gallery/ press/ personal/ legacy/ journal/ contact/
-  data/           timeline · awards · media · press · gallery · crl
-  lib/            animations (GSAP helpers) · smooth-scroll (Lenis)
-public/media/     hosted imagery + media-manifest.json (see media/README.md)
+    layout/            Navigation (sticky), Footer
+    sections/          Hero · About · Journey · CrlDiagnostics · Philosophy ·
+                       Recognition · Insights · Speaking · Contact
+    ui/                Photo, SectionHeader, RevealObserver
+  data/                profile · timeline · crl · awards · media · assets · sources
+public/media/          hosted imagery + media-manifest.json (see media/README.md)
 ```
 
-## Content & integrity
+## Motion
 
-This is content-driven — edit the files in `src/data/` (they read like a CMS).
-Guardrails built in per the brief:
+Restrained and played once. Everything lives in `globals.css` (one easing curve,
+`--ease-elegant`) plus two tiny client helpers.
 
-- **No fabricated imagery.** Missing assets render a clearly-labelled placeholder;
-  never a fake photo, certificate, or award logo. Add approved files under
-  `public/media/` and set the `image` field in the matching data file.
-- **`verified` flags** on data entries and **`usageStatus`** in
-  `media-manifest.json` gate anything not yet source-confirmed.
-- **No invented dates.** Press dates are omitted where unconfirmed.
-- **Soft founding timeline** — public profiles differ; specifics stay
-  CMS-configurable until verified.
-- **CRL statistics and lab locations are placeholders** — verify against official
-  company material before production.
-- **No private contact details** are exposed.
-- Journal articles are marked **Draft** — no quotes/authorship published until approved.
+- **Hero entrance** (CSS only): text rises in sequence, the portrait unveils
+  upward, then the gold frame and credential card settle into place.
+- **Scroll reveals**: `data-reveal` fades and rises 18px; groups stagger via
+  `stagger(i)` from `src/lib/motion.ts`. Gold eyebrow rules draw in, and the
+  timeline spine draws down (`data-reveal="line"`).
+- **Figures** count up once when seen (`components/ui/CountUp.tsx`).
+- **Hover**: cards lift 4px (`.lift`), button arrows nudge, the lead press photo
+  zooms slightly, nav links get a gold underline.
+- **Navigation**: thin gold reading-progress line and active-section highlight.
+
+With `prefers-reduced-motion: reduce` none of this moves, and content stays
+visible when JavaScript is off.
+
+## Mobile
+
+Designed phone-first where it matters; desktop layouts are unchanged.
+
+- **Hero reading order** on phones: name and title → portrait → story and CTAs
+  (a three-block grid that becomes two columns from `lg`).
+- **Swipe rails** (`.rail` in `globals.css`) turn long card lists — awards and
+  press stories — into snap-scrolling rows with a peek of the next card and a
+  "Swipe" cue (`components/ui/SwipeHint.tsx`); they become grids from `sm` up.
+- **Figures band** becomes compact rows; CRL pillars become icon rows.
+- **Menu**: full-screen, numbered, current section marked, with contact CTAs.
+  It sits outside the header because `backdrop-filter` would otherwise trap
+  `position: fixed`.
+- **Touch**: 44px+ tap targets, hover lifts only on hover-capable devices,
+  press feedback on touch, safe-area padding (`viewport-fit=cover`), and a
+  back-to-top button after 1.5 screens.
 
 ## Design tokens
 
 | Token | Value | Use |
 |---|---|---|
-| `lab-black` | `#07110F` | Primary background |
-| `lab-deep` | `#0D1B18` | Secondary background |
-| `ivory` | `#F3F0E8` | Primary text |
-| `muted` | `#9BA8A3` | Muted text |
-| `accent` | `#B7FF4A` | Accent — used extremely sparingly |
-| `champagne` | `#B89B5E` | Premium secondary accent |
-| `sci` | `#79C7B5` | Scientific interface accent |
+| `canvas` | `#F8F7F4` | Page background |
+| `paper` | `#FFFFFF` | Alternate sections |
+| `ink` | `#18202A` | Primary text |
+| `slate` | `#5F6670` | Secondary text |
+| `line` | `#E5E2DC` | Borders |
+| `gold` | `#B08A45` | Rules, icons, small details |
+| `bronze` | `#86672F` | Gold used as text (meets AA contrast) |
+| `navy` | `#162433` | Primary button, footer |
 
-Type: **Instrument Serif** (display) · **Inter** (interface).
+## Content & integrity
+
+Everything the site shows comes from the files in `src/data/`. Each factual
+entry has a `verified` flag, and **only verified entries are shown**. Entries
+that could not be confirmed stay in the files, hidden, so they can be turned on
+once someone confirms them. `src/data/sources.ts` lists the public sources
+behind the verified claims.
+
+- **No fabricated imagery.** Until an approved photo is hosted, image slots
+  show a plain ivory panel with a monogram. Add files under `public/media/`
+  and set `image` in `src/data/assets.ts` (or on the matching data entry).
+- **No invented dates.** Leave `date` / `year` empty when it isn't confirmed.
+- **Contact email** is hidden until `links.email` in `src/data/profile.ts` is set.

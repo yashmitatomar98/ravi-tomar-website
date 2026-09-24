@@ -1,25 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import Grain from "@/components/fx/Grain";
-import CustomCursor from "@/components/fx/CustomCursor";
-import Preloader from "@/components/fx/Preloader";
-import SmoothScroll from "@/components/layout/SmoothScroll";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
-import { crlLinks } from "@/data/crl";
+import RevealObserver from "@/components/ui/RevealObserver";
+import { links } from "@/data/profile";
 
-const display = Instrument_Serif({
+const serif = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-display",
+  weight: ["500", "600"],
+  variable: "--font-serif",
   display: "swap",
-  style: ["normal", "italic"],
 });
 
-const body = Inter({
+const sans = Inter({
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-sans",
   display: "swap",
 });
 
@@ -33,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Ravi Tomar",
   },
   description:
-    "Ravi Tomar is the Founder, Chairman and Managing Director of CRL Diagnostics, with nearly three decades of leadership experience across healthcare and diagnostics.",
+    "Ravi Tomar is the Founder, Chairman and Managing Director of CRL Diagnostics, with over 29 years of leadership experience across healthcare and diagnostics.",
   keywords: [
     "Ravi Tomar",
     "CRL Diagnostics",
@@ -53,7 +49,7 @@ export const metadata: Metadata = {
     title:
       "Ravi Tomar | Founder, Chairman & Managing Director — CRL Diagnostics",
     description:
-      "Nearly three decades in healthcare and diagnostics. Founder of CRL Diagnostics. Driven by quality, ethics and accessible diagnostic healthcare.",
+      "Over 29 years in healthcare and diagnostics. Founder, Chairman & Managing Director of CRL Diagnostics.",
     siteName: "Ravi Tomar",
     locale: "en_IN",
   },
@@ -61,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ravi Tomar — Founder, CRL Diagnostics",
     description:
-      "Building trust in every diagnosis. Precision. Purpose. Progress.",
+      "Over 29 years in healthcare and diagnostics.",
   },
   robots: {
     index: true,
@@ -72,10 +68,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#07110F",
-  colorScheme: "dark",
+  themeColor: "#F8F7F4",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 const personJsonLd = {
@@ -84,7 +81,7 @@ const personJsonLd = {
   name: "Ravi Tomar",
   jobTitle: "Founder, Chairman & Managing Director",
   description:
-    "Founder, Chairman and Managing Director of CRL Diagnostics, with nearly three decades of leadership experience across healthcare and diagnostics.",
+    "Founder, Chairman and Managing Director of CRL Diagnostics, with over 29 years of leadership experience across healthcare and diagnostics.",
   url: SITE_URL,
   address: {
     "@type": "PostalAddress",
@@ -94,9 +91,10 @@ const personJsonLd = {
   worksFor: {
     "@type": "Organization",
     name: "CRL Diagnostics Pvt. Ltd.",
-    url: crlLinks.website,
+    url: links.crlWebsite,
     industry: "Diagnostics & Healthcare",
   },
+  sameAs: [links.linkedin],
   knowsAbout: [
     "Diagnostics",
     "Healthcare Quality",
@@ -112,20 +110,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${serif.variable} ${sans.variable}`}>
       <body>
+        {/* Marks JS as available so reveal styles only hide content that can be revealed. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        <Preloader />
-        <Grain />
-        <CustomCursor />
-        <SmoothScroll>
-          <Navigation />
-          <main>{children}</main>
-          <Footer />
-        </SmoothScroll>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-paper focus:px-4 focus:py-2"
+        >
+          Skip to content
+        </a>
+        <Navigation />
+        <main id="main">{children}</main>
+        <Footer />
+        <RevealObserver />
       </body>
     </html>
   );
